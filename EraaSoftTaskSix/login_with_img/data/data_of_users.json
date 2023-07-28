@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "username": "mohamedseabeai@gmail.com",
+        "email": "mohamedseabeai@gmail.com",
+        "password": "$2y$10$ZyyJL7NuVyHRbQRkgZRYGev92nsQumTCduSRTwaeKRCns.h2VXcqm",
+        "img": "IMG-1327122553.jpg"
+    },
+    {
+        "id": 2,
+        "username": "mohamedseabeai@gmail.com",
+        "email": "mohamedseabeaiaa@gmail.com",
+        "password": "$2y$10$O4pgWJ6ksZhw1zAAXXihIOejeBZi6OfXinxIqSZotw4uON2uyHKGe",
+        "img": "IMG-1125807978.png"
+    }
+]

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2023 at 12:12 AM
+-- Generation Time: Jul 29, 2023 at 03:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -95,6 +95,29 @@ INSERT INTO `orders` (`id`, `product_id`, `users_id`, `price`, `quantity`, `disc
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phones`
+--
+
+CREATE TABLE `phones` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `country_code` varchar(10) NOT NULL,
+  `phone_number` int(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `phones`
+--
+
+INSERT INTO `phones` (`id`, `user_id`, `country_code`, `phone_number`, `created_at`, `updated_at`) VALUES
+(1, 1, '+02', 1149725209, '2023-07-29 13:09:37', '2023-07-29 15:08:51'),
+(2, 2, '+02', 1121979081, '2023-07-29 13:09:37', '2023-07-29 15:08:51');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -154,8 +177,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `profile_img`, `role
 --
 ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `order_conts_for_cart` (`order_id`),
-  ADD KEY `users_conts_for_cart` (`user_id`);
+  ADD KEY `users_conts_for_cart` (`user_id`),
+  ADD KEY `belong_to_order_id` (`order_id`);
 
 --
 -- Indexes for table `categories`
@@ -171,6 +194,13 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `prd_const` (`product_id`),
   ADD KEY `user_const` (`users_id`);
+
+--
+-- Indexes for table `phones`
+--
+ALTER TABLE `phones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `phone_belong_to_user` (`user_id`);
 
 --
 -- Indexes for table `products`
@@ -209,6 +239,12 @@ ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `phones`
+--
+ALTER TABLE `phones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -228,7 +264,7 @@ ALTER TABLE `users`
 -- Constraints for table `carts`
 --
 ALTER TABLE `carts`
-  ADD CONSTRAINT `order_conts_for_cart` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `belong_to_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `users_conts_for_cart` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -243,6 +279,12 @@ ALTER TABLE `categories`
 ALTER TABLE `orders`
   ADD CONSTRAINT `prd_const` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_const` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `phones`
+--
+ALTER TABLE `phones`
+  ADD CONSTRAINT `phone_belong_to_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`

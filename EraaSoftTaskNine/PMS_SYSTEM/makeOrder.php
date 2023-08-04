@@ -10,7 +10,7 @@ if(!isset($_SESSION['role_user'])){
 if(isset($_GET['product_id']) && is_numeric($_GET['product_id'])){
     $product_id = $_GET['product_id'];
 }else{
-    header('Location: products.php');
+    header('Location: index.php');
     exit();
 }
 ?>
@@ -44,7 +44,7 @@ if(isset($_GET['product_id']) && is_numeric($_GET['product_id'])){
         if($count > 0 ){
             $row   = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
         }else{
-            header('Location: products.php');
+            header('Location: index.php');
             exit();
         }
     ?>

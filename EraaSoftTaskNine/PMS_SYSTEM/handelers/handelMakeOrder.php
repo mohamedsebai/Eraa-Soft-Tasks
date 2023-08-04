@@ -42,7 +42,7 @@ require('../includes/functions.php');
                 $_SESSION['success_make_order'] = 'Order made successfully';
                 header("Location: ../makeOrder.php?product_id=$product_id");
             }else{
-                header("Location: ../products.php");
+                header("Location: ../index.php");
                 exit();
             }
             

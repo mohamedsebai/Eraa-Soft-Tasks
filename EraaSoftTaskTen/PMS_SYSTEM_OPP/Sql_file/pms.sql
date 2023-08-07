@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2023 at 04:18 AM
+-- Generation Time: Aug 07, 2023 at 03:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -34,6 +34,13 @@ CREATE TABLE `carts` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `user_id`, `product_id`, `created_at`, `update_at`) VALUES
+(39, 13, 17, '2023-08-07 12:28:48', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -84,7 +91,8 @@ INSERT INTO `orders` (`id`, `product_id`, `users_id`, `size`, `price`, `quantity
 (48, 17, 13, 's', '100$', '1', '0%', '100$', '2023-08-06 02:14:42', '0000-00-00 00:00:00'),
 (49, 17, 13, 's', '100$', '1', '0%', '100$', '2023-08-06 02:14:43', '0000-00-00 00:00:00'),
 (50, 17, 13, 's', '100$', '1', '0%', '100$', '2023-08-06 02:14:44', '0000-00-00 00:00:00'),
-(51, 17, 13, 's', '100$', '1', '0%', '100$', '2023-08-06 02:14:44', '0000-00-00 00:00:00');
+(51, 17, 13, 's', '100$', '1', '0%', '100$', '2023-08-06 02:14:44', '0000-00-00 00:00:00'),
+(52, 17, 13, 's', '100$', '1', '0%', '100$', '2023-08-07 12:28:37', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -213,7 +221,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -225,7 +233,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `phones`

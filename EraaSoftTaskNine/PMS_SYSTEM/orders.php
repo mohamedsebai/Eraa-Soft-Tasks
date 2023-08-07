@@ -48,7 +48,7 @@ if(!isset($_SESSION['role_user'])){
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                    Quantity: <?php echo $data['prd_quantity']; ?>
+                    Quantity: <?php echo $data['quantity']; ?>
                     </li>
                     <li class="list-group-item">Total Price: <?php echo $data['total']; ?></li>
                     <li class="list-group-item"> <a href="order_details.php?order_id=<?php echo $data['id']; ?>">Order Details</a></li>

@@ -19,7 +19,7 @@
     <div class="container">
       <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav mx-auto">
-        <?php if(($session->get('role_user_user_id'))): ?>
+        <?php if(($session->check('role_user_user_id'))): ?>
           <li class="nav-item">
           <a class="nav-link " href="profile.php">Profile</a>
           </li>
